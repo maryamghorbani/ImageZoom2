@@ -1,2 +1,2 @@
-vanillaZoom.init('#my-gallery')
+vanillaZoom.init('#myimage')
 
