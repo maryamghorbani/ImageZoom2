@@ -17,11 +17,14 @@
                 zoomContainer.classList.add('zoom-container');
                 zoomContainer.style.width = `${imageBox.width}px`
                 zoomContainer.style.height = `${imageBox.height}px`
-                
-                document.querySelector('body').insertAdjacentElement('beforeend', zoomContainer);
                 zoomContainer.style.position = 'absolute';
                 zoomContainer.style.top = `${imageBox.top + window.pageYOffset}px`
                 zoomContainer.style.left = `${imageBox.left + window.pageXOffset}px`
+
+                zoomLens = document.createElement('div')
+
+                document.querySelector('body').insertAdjacentElement('beforeend', zoomContainer);
+
 
             })
         }
