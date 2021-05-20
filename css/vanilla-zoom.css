@@ -1,5 +1,9 @@
 * {box-sizing: border-box;}
 
+
+#myimage {
+    width: 40%;
+}
 .img-zoom-lens {
     position: absolute;
     border: 2px solid red;
