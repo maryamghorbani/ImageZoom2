@@ -29,16 +29,21 @@
                 zoomResult.style.position = 'absolute';
                 zoomResult.style.top = `${imageBox.bottom + window.pageXOffset}px`
 
-                zoomResult.style.background = `url(${image.src})`
 
                 zoomContainer.insertAdjacentElement('afterbegin', zoomLens)
                 zoomContainer.insertAdjacentElement('afterbegin', zoomResult)
 
                 document.querySelector('body').insertAdjacentElement('beforeend', zoomContainer);
 
+                let cx = zoomResult.offsetWidth / zoomLens.offsetWidth;
+                let cy = zoomResult.offsetHeight / zoomLens.offsetHeight;
+
+                zoomResult.style.background = `url(${image.src})`
+                zoomResult.style.backgroundSize = `${image.width * cx}px ${image.height * cy}px`;
+
                 zoomContainer.addEventListener('mousemove', function (e) {
                     let x = e.clientX - imageBox.left;
-                    let y = e.clientY - imageBox.top;
+                    let y = (e.clientY + window.pageYOffset) - imageBox.top;
 
                     x = x - (zoomLens.offsetWidth / 2)
                     y = y - (zoomLens.offsetHeight / 2)
@@ -50,6 +55,8 @@
 
                     zoomLens.style.top = `${y}px`;
                     zoomLens.style.left = `${x}px`;
+
+                    zoomResult.style.backgroundPosition = `-${x * cx}px -${y * cy}px`
                 })
 
 
