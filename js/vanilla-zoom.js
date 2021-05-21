@@ -23,7 +23,16 @@
 
                 zoomLens = document.createElement('div')
                 zoomLens.classList.add('img-zoom-lens')
+
+                zoomResult = document.createElement('div');
+                zoomResult.classList.add('img-zoom-result');
+                zoomResult.style.position = 'absolute';
+                zoomResult.style.top = `${imageBox.bottom + window.pageXOffset}px`
+
+                zoomResult.style.background = `url(${image.src})`
+
                 zoomContainer.insertAdjacentElement('afterbegin', zoomLens)
+                zoomContainer.insertAdjacentElement('afterbegin', zoomResult)
 
                 document.querySelector('body').insertAdjacentElement('beforeend', zoomContainer);
 
