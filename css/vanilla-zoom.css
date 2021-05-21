@@ -1,7 +1,7 @@
 * {box-sizing: border-box;}
 
 
-#myimage {
+#myimage, #myimage2 {
     width: 40%;
 }
 .img-zoom-lens {
