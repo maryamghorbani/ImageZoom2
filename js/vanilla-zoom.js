@@ -59,8 +59,14 @@
                     zoomResult.style.backgroundPosition = `-${x * cx}px -${y * cy}px`
                 })
 
+                zoomContainer.addEventListener('mouseleave', function (e) {
+                    this.remove()
+                })
+
 
             })
+
+
         }
     })
 
